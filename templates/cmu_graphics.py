@@ -455,7 +455,7 @@ if (not IS_BRYTHON):
                 os._exit(1)
 
     def startGraphics():
-        webbrowser.open('http://localhost:3000/simple-af.html')
+        #webbrowser.open('http://localhost:3000/simple-af.html')
         GRAPHICS_READY.wait()
         global CURRENT_APP_STATE
         CURRENT_APP_STATE = APP_STATES['userCanvas'] = AppState('userCanvas')

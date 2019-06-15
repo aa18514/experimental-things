@@ -7,11 +7,6 @@ from socketserver import ThreadingMixIn
 
 from threading import Thread, Timer, Lock, Event
 
-try:
-    from templates import cmu_graphics
-except Exception as e:
-    print(e)
-
 """
 useless stuff
 BROWSER_OPEN = True
