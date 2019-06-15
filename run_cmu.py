@@ -12,6 +12,8 @@ try:
 except Exception as e:
     print(e)
 
+"""
+useless stuff
 BROWSER_OPEN = True
 
 class MyRequestHandler(SimpleHTTPRequestHandler):
@@ -37,6 +39,7 @@ class ThreadedHTTPServer(ThreadingMixIn, HTTPServer):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.base_dir = os.path.dirname(os.path.abspath(__file__))
+"""
 
 app = Flask(__name__)
 
@@ -46,26 +49,16 @@ def index():
 
 @app.route('/', methods=['POST'])
 def hello():
-    first_name = request.form['text']
+    code = request.form['text']
     header="from templates import cmu_graphics\ncmu_graphics.Rect(100, 100, 100, 100)\ncmu_graphics.run()"
-    #exec(first_name)
-    print(header)
-    print("success")
-    cmu_graphics.Rect(100, 100, 100, 100)
-    print("success")
-    BROWSER_OPEN = cmu_graphics.run()
-    print("bad")
-    print(BROWSER_OPEN)
+    #try:
+    #    exec(code)
+    #except Exception as e:
+    #    print(e)
+    exec(header)
+    ## TO-DO: complete
     #print(first_name)
     #return 'Hello %s %s have fun learning python <br/> <a href="/">Back Home</a>' % (first_name, last_name)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=1000)
-
-    #http_server = ThreadedHTTPServer(('localhost', 3000), MyRequestHandler)
-    #def serve_until_close(server):
-    #    while BROWSER_OPEN:
-    #        server.handle_request()
-    #http_server.own_thread = Thread(target = lambda : serve_until_close(http_server))
-    #http_server.own_thread.start()
-
