@@ -446,7 +446,7 @@ if (not IS_BRYTHON):
             try:
                 FN_SERVER.own_thread.join()
                 EVENT_SERVER.own_thread.join()
-                request.urlopen('http://localhost:3000/simple-af.html')
+                request.urlopen('http://localhost:3000/simple-af.html').read()
                 HTTP_SERVER.own_thread.join()
                 break
             except KeyboardInterrupt:
