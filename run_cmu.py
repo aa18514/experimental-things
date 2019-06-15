@@ -1,4 +1,4 @@
-__author__ = 'kai'
+__author__ = 'FOCUS'
 
 from flask import Flask, render_template, request
 import os, sys
@@ -48,7 +48,7 @@ def index():
     return render_template('simple-af.html')
 
 @app.route('/', methods=['POST'])
-def hello():
+def run_code():
     code = request.form['text']
     header="from templates import cmu_graphics\ncmu_graphics.Rect(100, 100, 100, 100)\ncmu_graphics.run()"
     #try:
