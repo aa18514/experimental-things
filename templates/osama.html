@@ -36,14 +36,10 @@ from cmu_graphics_bry import compilePyCode
 window.py2js = compilePyCode
 </script>
 </head>
-<body>
-    <!-- Target nodes for event dispatching -->
-    <div id="application-target"></div>
-    <div id="brython-target"></div>
-    <div style="display:flex;align-items:center;justify-content:center;">
-        <div style="display:flex;align-self:flex-start"></div>
-        <canvas id="userCanvas" width="400" height="400", style="border:1px solid #000000;"></canvas>
-        <div style="display:flex;align-self:flex-end"></div>
-    </div>
-</body>
+<form method="post">
+    <textarea contenteditable="true" name="text" style="height:350px;width:350px" #pythoncode></textarea>
+    <input type="submit" (click)=RunCode(pythonCode) >
+</form>
+<iframe width="400" height="400" src="http://localhost:3000/simple-af.html#userCanvas">
+</iframe>
 </html>
