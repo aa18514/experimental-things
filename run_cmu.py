@@ -19,8 +19,12 @@ def index():
 @app.route('/', methods=['POST'])
 def run_code():
     code = request.form['text']
-    header = "from templates import cmu_graphics\ncmu_graphics.Rect(100, 100, 100, 100)\ncmu_graphics.run()"
-    exec(header)
+    code = "from templates.cmu_graphics import *\nresetGlobals()\n" + code + "\nrun()\n"
+    print(code)
+    try:
+        exec(code)
+    except Exception as e:
+        print(e)
     return('', 204)
     
 
