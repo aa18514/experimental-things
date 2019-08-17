@@ -1,41 +1,4 @@
 <html>
-<head>
-<script type="text/javascript" src="cmu-graphics-for-test.js"></script>
-<script type="text/javascript" src="animation-framework-dev.js"></script> 
-<script type="text/javascript">
-/* eslint-disable */
-
-function frameworkPrintLine(event) {
-    console.log(event.detail.line);
-}
-
-function frameworkStop(event) {}
-function frameworkPause(event) {}
-function frameworkUnpause(event) {}
-
-function runCode() {
-    var snippets = [{ code: '', mode: 'py'}];
-    postToIDE('brythonRunCode', {
-        snippets : snippets,
-        resetGlobals : true
-    });
-}
-
-window.onload = () => {
-  initCmuGraphics({localFramework: true});
-  brython({ debug: 1, indexedDB: false });
-  setupAppTargetEvents();
-  setupCanvasEvents();
-  runCode();
-};
-</script>
-
-<script type="text/python">
-from browser import window, document
-from cmu_graphics_bry import compilePyCode
-window.py2js = compilePyCode
-</script>
-</head>
 <form method="post">
     <textarea contenteditable="true" name="text" style="height:350px;width:350px" #pythoncode></textarea>
     <input type="submit" (click)=RunCode(pythonCode) >
